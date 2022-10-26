@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family:Arial, Helvetica, sans-serif;
+  height: 1000px;
+}
+
+
+/* 
+  Стили переключателя
+*/
+.gallery__input {
+  display: none;
+}
+
+.gallery__input-item1:checked ~ .gallery__controller .gallery__label-1,
+.gallery__input-item2:checked ~ .gallery__controller .gallery__label-2,
+.gallery__input-item3:checked ~ .gallery__controller .gallery__label-3,
+.gallery__input-item4:checked ~ .gallery__controller .gallery__label-4,
+.gallery__input-item5:checked ~ .gallery__controller .gallery__label-5,
+.gallery__input-item6:checked ~ .gallery__controller .gallery__label-6 {
+  background: rgb(112, 112, 112);
+}
+.gallery__controller {
+  position: absolute;
+  width: 140px;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%); 
+}
+.gallery__label {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+}
+
+/* Стили gallery */
+.gallery {
+  width: 1230px;
+  min-height: 200px;
+  position: relative;
+  margin: 100px 0 0 150px;
+}
+
+.gallery__list {
+  width: 1230px;
+  list-style-type: none;
+  white-space: nowrap;
+  position: relative;
+
+  transition: margin-left 500ms ease;
+}
+.gallery__article {
+  width: 100%;
+  max-width: 300px; 
+  white-space: normal;
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  opacity: 0;
+}
+.gallery__article:not(:target):hover .gallery__box {
+  display: inline-block;
+}
+
+.gallery__item-header {
+  padding: 15px;
+}
+.gallery__img {
+  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: contain;
+  height: 100%;
+  display: block;
+}
+.gallery__box {
+  position: absolute;
+  padding: 15px;
+  display: none;
+  top: 0;
+  background: #fff;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.5);
+}
+.gallery__title-name {
+  margin-top: 10px;
+}
+.gallery__paragraph, .gallery__title-name {
+  font-size: .8em;
+  margin-bottom: 10px;
+}
+.gallery__paragraph:last-child {
+  margin-bottom: 0;
+}
+
+
+.gallery__input-item1:checked ~ .gallery__list .slide-1,
+.gallery__input-item2:checked ~ .gallery__list .slide-2,
+.gallery__input-item3:checked ~ .gallery__list .slide-3,
+.gallery__input-item4:checked ~ .gallery__list .slide-4,
+.gallery__input-item5:checked ~ .gallery__list .slide-5,
+.gallery__input-item6:checked ~ .gallery__list .slide-6
+{
+  opacity: 1;
+}
+.gallery__input-item2:checked ~ .gallery__list {
+  margin-left: -74.5%;
+}
+.gallery__input-item3:checked ~ .gallery__list {
+  margin-left: -149%;
+}
+.gallery__input-item4:checked ~ .gallery__list {
+  margin-left: -222.5%
+}
+.gallery__input-item5:checked ~ .gallery__list {
+  margin-left: -297%;
+}
+.gallery__input-item6:checked ~ .gallery__list {
+  margin-left: -371.5%;
+}
+
+
+/* Стили для модального окна*/
+
+.gallery__closed {
+  font-size: 2em;
+  display: none;
+}
+
+.gallery__closed-link {
+  color: rgb(231, 231, 231);
+  text-decoration: none;
+  font-weight: 500;
+}
+.gallery__article:target .gallery__wrapper {
+  position: fixed;
+  height: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.8);
+  z-index: 2;
+}
+.gallery__article:target .gallery__item-header {
+  width: 100%;
+  padding: 0;
+  top: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translateY(-50%);
+}
+.gallery__article:target .gallery__item-header .gallery__img {
+  width: auto;
+  max-width: 700px;
+  max-height: 600px;
+  display: inline;
+  object-fit: contain;
+}
+.gallery__article:target .gallery__closed {
+  display: inline;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  z-index: 10;
+}
+
