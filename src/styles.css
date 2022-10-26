@@ -44,7 +44,8 @@ body {
   width: 1230px;
   min-height: 200px;
   position: relative;
-  margin: 100px 0 0 150px;
+  margin: 0 auto;
+  /* margin: 100px 0 0 150px; */
 }
 
 .gallery__list {
